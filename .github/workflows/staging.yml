@@ -12,8 +12,9 @@ jobs:
       - name: Run CI/CD tests on flash
         uses: akto-api-security/run-scan@v1.0.12
         with:
-          AKTO_DASHBOARD_URL: http://a044e0c69779045e0866bb673e02c4bc-e64f35f7c93eb0e6.elb.ap-south-1.amazonaws.com:8080
+          AKTO_DASHBOARD_URL: https://flash.staging.akto.io
           GITHUB_COMMIT_ID: ${{github.event.pull_request.head.sha}}
           AKTO_API_KEY: ${{secrets.AKTO_API_KEY_FLASH}}
           WAIT_TIME_FOR_RESULT: 1200
           AKTO_TEST_ID: ${{vars.FLASH_TEST_ID}}
+          OVERRIDDEN_TEST_APP_URL: http://a044e0c69779045e0866bb673e02c4bc-e64f35f7c93eb0e6.elb.ap-south-1.amazonaws.com:8080
